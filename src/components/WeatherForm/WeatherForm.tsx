@@ -27,13 +27,13 @@ export const WeatherForm: FC<T_WeatherForm> = ({ children, city }) => {
                 </div>
             </div>
 
-            <div className={style["weather__get"]}>
+            <form className={style["weather__get"]}>
                 <h2>Введите город</h2>
                 <input type="text" className={style["city-input"]} placeholder="Название города" />
                 <div className={style["cities__list"]}></div>
                 
                 <button className={style["get-weather"]}>Запросить погоду</button>
-            </div>
+            </form>
             
         </div>
     </div>
