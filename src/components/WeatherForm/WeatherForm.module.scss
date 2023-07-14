@@ -79,3 +79,39 @@ p{
     }
   }
 }
+
+
+@media (max-width: 920px) {
+  .weather{
+      width: 90%;
+      height: 30%;
+  }
+}
+
+@media (max-width: 440px){
+  .weather{
+      height: 50%;
+
+      &__show *{
+        font-size: 15px;
+    }
+
+    &__get{
+      width: 50%;
+      & h2{
+        font-size: 20px;
+    }
+  }
+  
+}
+
+  .city-name{
+      font-size: 25px;
+  }
+}
+
+@media (max-height: 615px){
+  .weather{
+      height: 70%;
+  }
+}
