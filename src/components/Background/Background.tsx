@@ -16,3 +16,4 @@ export const Background: FC<T_BackgroundProps> = ({ children, background }) => {
     </div>
   );
 };
+
