@@ -3,6 +3,7 @@ import { FC, PropsWithChildren, FormEventHandler } from "react";
 
 
 import style from "./WeatherForm.module.scss";
+import { getWeather } from '../../utils/getWeather.tsx';
 
 type T_WeatherForm = PropsWithChildren<{ city?: string;}>;
 
@@ -22,6 +23,8 @@ export const WeatherForm: FC<T_WeatherForm> = ({ children, city }) => {
 
     const onFormSubmit: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault();
+        getWeather(weatherInput, changeWeather);
+        console.log(weatherInput, localStorage.getItem("currentCity"));
     };
 
   return (

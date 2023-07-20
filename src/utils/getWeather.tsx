@@ -4,9 +4,9 @@ import { getCurrentTime } from '../utils/getCurrentTime.tsx' ;
 import { getCorrectWind } from '../utils/getCorrectWind.tsx' ;
 import { getCorrectPressure } from '../utils/getCorrectPressure.tsx' ;
 
-let currentCity = localStorage.getItem("currentCity") || 'Москва';
+export const getWeather = async (city: string, callback) => {
 
-export const getWeather = async () => {
+    let currentCity = city || localStorage.getItem("currentCity") || 'Москва';
 
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${currentCity}&appid=85d9877a19499d8c389f1fb40ddcbdb4`);
 
@@ -23,6 +23,16 @@ export const getWeather = async () => {
         let pressure = getCorrectPressure(weather.main.pressure);
 
         localStorage.setItem("currentCity", currentCity);
+
+        callback({
+            city: cityName,
+            time: currentTime,
+            temperature: temperature,
+            description: "Чисто", //исправить
+            wind: wind,
+            humidity: humidity,
+            pressure: pressure,
+        });
 
     }else{
         alert("Ошибка запроса погоды");
