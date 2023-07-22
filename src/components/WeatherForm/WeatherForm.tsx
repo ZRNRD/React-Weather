@@ -24,6 +24,7 @@ export const WeatherForm: FC<T_WeatherForm> = ({ children, city }) => {
     const onFormSubmit: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault();
         getWeather(weatherInput, changeWeather);
+        changeWeatherInput("");
     };
 
     React.useEffect(()=>{getWeather(localStorage.getItem("currentCity") || 'Москва', changeWeather);}, []);
