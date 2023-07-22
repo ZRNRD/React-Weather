@@ -18,6 +18,7 @@ export const getWeather = async (city: string, callback) => {
         let cityName = getCorrectCityName(currentCity);
         let temperature = getCorrectTemperature(currentTemperature);
         let description = getCorrectDescription(weather.weather[0].main);
+        let background = weather.weather[0].main;
         let currentTime = "Сейчас " + getCurrentTime();
         let wind = getCorrectWind(weather.wind);
         let humidity = "Влажность: " + weather.main.humidity + "%";
@@ -31,6 +32,7 @@ export const getWeather = async (city: string, callback) => {
             time: currentTime,
             temperature: temperature,
             description: description,
+            background: background,
             wind: wind,
             humidity: humidity,
             pressure: pressure,
