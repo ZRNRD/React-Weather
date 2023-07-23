@@ -10018,5 +10018,5 @@ export const getArrayOfCitiesFromLetters = (letters) => {
         "city": "Ярославль"
       }
     ]
-    return letters ?  cities.filter((cities) => cities.city.slice(0, letters.length).toLowerCase() === letters.toLowerCase()) : "";
+    return letters ?  cities.filter((cities) => cities.city.slice(0, letters.length).toLowerCase() === letters.toLowerCase()) : [];
 }

@@ -2,9 +2,12 @@ import * as React from 'react';
 import { FC, PropsWithChildren, FormEventHandler } from "react";
 
 import { Background } from '../Background/Background.tsx';
+import { ListOfCities } from '../ListOfCities/ListOfCities.tsx';
 
 import style from "./WeatherForm.module.scss";
 import { getWeather } from '../../utils/getWeather.tsx';
+import { getArrayOfCitiesFromLetters } from '../../utils/getArrayOfCitiesFromLetters.tsx';
+
 
 type T_WeatherForm = PropsWithChildren<{ city?: string;}>;
 
@@ -23,10 +26,13 @@ export const WeatherForm: FC<T_WeatherForm> = ({ children, city }) => {
 
     const [weatherInput, changeWeatherInput] = React.useState("");
 
+    const [listOfCities, changeListOfCities] = React.useState([]);
+
     const onFormSubmit: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault();
         getWeather(weatherInput, changeWeather);
         changeWeatherInput("");
+        changeListOfCities([]);
     };
 
     React.useEffect(()=>{getWeather(localStorage.getItem("currentCity") || 'Москва', changeWeather);}, []);
@@ -58,8 +64,12 @@ export const WeatherForm: FC<T_WeatherForm> = ({ children, city }) => {
                             className={style["city-input"]} 
                             placeholder="Название города" 
                             value={weatherInput}
-                            onChange={(e) => { changeWeatherInput(e.target.value);}}/>
-                    <div className={style["cities__list"]}></div>
+                            onChange={(e) => { 
+                                changeWeatherInput(e.target.value); 
+                                let citiesArray = getArrayOfCitiesFromLetters(e.target.value).map(city=>city.city);
+                                changeListOfCities(citiesArray);
+                                }}/>
+                    <ListOfCities cities={listOfCities} callback={(e)=>{changeWeatherInput(e); changeListOfCities([])}}/>
                     
                     <button className={style["get-weather"]}>Запросить погоду</button>
                 </form>

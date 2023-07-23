@@ -1,0 +1,16 @@
+.cities__list{
+    background-color: white;
+    margin: 0;
+    max-height: 85px;
+    list-style-type: none;
+    overflow-y: scroll;
+  
+    & li{
+      padding: 5px;
+  
+      &:hover{
+        background-color: rgb(172, 172, 172);
+        cursor: pointer;
+      }
+    }
+  }
