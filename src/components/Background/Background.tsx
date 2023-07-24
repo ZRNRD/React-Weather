@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FC, PropsWithChildren } from "react";
 
-import { getBackground } from '../../utils/getBackground.tsx';
+import { getBackground } from '../../utils/getBackground';
 
 import style from "./Background.module.scss";
 

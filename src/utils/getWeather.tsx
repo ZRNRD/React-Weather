@@ -1,9 +1,9 @@
-import { getCorrectCityName } from '../utils/getCorrectCityName.tsx' ;
-import { getCorrectTemperature } from '../utils/getCorrectTemperature.tsx' ;
-import { getCurrentTime } from '../utils/getCurrentTime.tsx' ;
-import { getCorrectWind } from '../utils/getCorrectWind.tsx' ;
-import { getCorrectPressure } from '../utils/getCorrectPressure.tsx' ;
-import { getCorrectDescription } from './getCorrectDescription.tsx';
+import { getCorrectCityName } from '../utils/getCorrectCityName' ;
+import { getCorrectTemperature } from '../utils/getCorrectTemperature' ;
+import { getCurrentTime } from '../utils/getCurrentTime' ;
+import { getCorrectWind } from '../utils/getCorrectWind' ;
+import { getCorrectPressure } from '../utils/getCorrectPressure' ;
+import { getCorrectDescription } from './getCorrectDescription';
 
 export const getWeather = async (city: string, callback:Function) => {
 

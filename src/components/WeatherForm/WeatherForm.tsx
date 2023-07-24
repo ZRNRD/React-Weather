@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { FC, PropsWithChildren, FormEventHandler } from "react";
 
-import { Background } from '../Background/Background.tsx';
-import { ListOfCities } from '../ListOfCities/ListOfCities.tsx';
+import { Background } from '../Background/Background';
+import { ListOfCities } from '../ListOfCities/ListOfCities';
 
 import style from "./WeatherForm.module.scss";
-import { getWeather } from '../../utils/getWeather.tsx';
-import { getArrayOfCitiesFromLetters } from '../../utils/getArrayOfCitiesFromLetters.tsx';
+import { getWeather } from '../../utils/getWeather';
+import { getArrayOfCitiesFromLetters } from '../../utils/getArrayOfCitiesFromLetters';
 
 
 type T_WeatherForm = PropsWithChildren<{ city?: string;}>;
@@ -81,7 +81,7 @@ export const WeatherForm: FC<T_WeatherForm> = ({ children, city }) => {
                                 }}/>
                     <ListOfCities 
                         cities={listOfCities} 
-                        callback={(e)=>{
+                        callback={(e: any)=>{
                             changeWeatherInput(e); 
                             getWeather(e, changeWeather);
                             changeWeatherInput(""); 
