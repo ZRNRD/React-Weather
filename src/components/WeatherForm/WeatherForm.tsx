@@ -10,23 +10,33 @@ import { getArrayOfCitiesFromLetters } from '../../utils/getArrayOfCitiesFromLet
 
 
 type T_WeatherForm = PropsWithChildren<{ city?: string;}>;
+type T_WeatherState = {
+    city: string,
+    time: string,
+    temperature: string,
+    description: string,
+    background: string,
+    wind: string,
+    humidity: string,
+    pressure: string,
+};
 
 export const WeatherForm: FC<T_WeatherForm> = ({ children, city }) => {
 
-    const [weather, changeWeather] = React.useState({
-        city: "Москва",
-        time: "00:00",
-        temperature: "0°C",
-        description: "Чисто",
-        background: "Clear",
-        wind: "Ветер 0 м/с",
-        humidity: "Влажность 100%",
-        pressure: "Давление: 746 мм рт. ст.",
+    const [weather, changeWeather] = React.useState<T_WeatherState>({
+        city: "",
+        time: "",
+        temperature: "",
+        description: "",
+        background: "",
+        wind: "",
+        humidity: "",
+        pressure: "",
     });
 
-    const [weatherInput, changeWeatherInput] = React.useState("");
+    const [weatherInput, changeWeatherInput] = React.useState<string>("");
 
-    const [listOfCities, changeListOfCities] = React.useState([]);
+    const [listOfCities, changeListOfCities] = React.useState<Array<string>>([]);
 
     const onFormSubmit: FormEventHandler<HTMLFormElement> = (event) => {
         event.preventDefault();

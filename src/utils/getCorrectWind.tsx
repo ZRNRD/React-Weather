@@ -1,4 +1,4 @@
-export const getCorrectWind = ({speed, deg}) => {
+export const getCorrectWind = ({speed, deg}:{speed:number, deg: number}): string => {
     if(deg >= 335 && deg <= 25){
         return "Ветер: " + speed + " м/с, C" 
     }else if(deg > 25 && deg < 65){

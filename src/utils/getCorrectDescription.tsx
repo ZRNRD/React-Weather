@@ -1,4 +1,4 @@
-export const getCorrectDescription = (description: string) => {
+export const getCorrectDescription = (description: string): string => {
 
     switch (description) {
         case "Clear":
@@ -26,7 +26,7 @@ export const getCorrectDescription = (description: string) => {
             return "Шквал";
         case "Tornado":
             return "Торнадо";
-        default: break;
+        default: return "";
     }
 
 };

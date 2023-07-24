@@ -5,7 +5,7 @@ import { getCorrectWind } from '../utils/getCorrectWind.tsx' ;
 import { getCorrectPressure } from '../utils/getCorrectPressure.tsx' ;
 import { getCorrectDescription } from './getCorrectDescription.tsx';
 
-export const getWeather = async (city: string, callback) => {
+export const getWeather = async (city: string, callback:Function) => {
 
     let currentCity = city || localStorage.getItem("currentCity") || 'Москва';
 
@@ -16,7 +16,7 @@ export const getWeather = async (city: string, callback) => {
         let currentTemperature = (weather.main.temp -273.15).toFixed(1);
         
         let cityName = getCorrectCityName(currentCity);
-        let temperature = getCorrectTemperature(currentTemperature);
+        let temperature = getCorrectTemperature(Number(currentTemperature));
         let description = getCorrectDescription(weather.weather[0].main);
         let background = weather.weather[0].main;
         let currentTime = "Сейчас " + getCurrentTime();

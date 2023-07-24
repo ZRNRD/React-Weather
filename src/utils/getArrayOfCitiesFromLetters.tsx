@@ -1,4 +1,4 @@
-export const getArrayOfCitiesFromLetters = (letters) => {
+export const getArrayOfCitiesFromLetters = (letters: string) => {
     const cities = 
     [
       {

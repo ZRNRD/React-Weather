@@ -11,8 +11,6 @@ import tornadoBG from "../assets/images/Tornado-bg.jpg";
 
 export function getBackground(background: string){
     switch (background) {
-        case "Clear":
-            return clearBG;
         case "Clouds":
             return cloudsBG;
         case "Rain":
@@ -36,6 +34,7 @@ export function getBackground(background: string){
             return squalBG;
         case "Tornado":
             return tornadoBG;
-        default: break;
+        case "Clear":
+        default: return clearBG;
     }
 }
