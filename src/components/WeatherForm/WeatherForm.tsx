@@ -69,7 +69,14 @@ export const WeatherForm: FC<T_WeatherForm> = ({ children, city }) => {
                                 let citiesArray = getArrayOfCitiesFromLetters(e.target.value).map(city=>city.city);
                                 changeListOfCities(citiesArray);
                                 }}/>
-                    <ListOfCities cities={listOfCities} callback={(e)=>{changeWeatherInput(e); changeListOfCities([])}}/>
+                    <ListOfCities 
+                        cities={listOfCities} 
+                        callback={(e)=>{
+                            changeWeatherInput(e); 
+                            getWeather(e, changeWeather);
+                            changeWeatherInput(""); 
+                            changeListOfCities([])}}
+                    />
                     
                     <button className={style["get-weather"]}>Запросить погоду</button>
                 </form>
